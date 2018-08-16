@@ -54,8 +54,11 @@ namespace Huobi.Rest.CSharp.Demo
         {
             ACCESS_KEY = accessKey;
             SECRET_KEY = secretKey;
-            HUOBI_HOST = huobi_host;
-            HUOBI_HOST_URL = "https://" + HUOBI_HOST;
+           // HUOBI_HOST = huobi_host;
+            HUOBI_HOST_URL = "https://" + huobi_host;
+           	Uri uri = new Uri(HUOBI_HOST_URL);
+            HUOBI_HOST = uri.Host;
+         
             if (string.IsNullOrEmpty(ACCESS_KEY))
                 throw new ArgumentException("ACCESS_KEY Cannt Be Null Or Empty");
             if (string.IsNullOrEmpty(SECRET_KEY))
